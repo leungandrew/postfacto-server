@@ -1,0 +1,26 @@
+type Query {
+  retro(id: ID!): Retro
+}
+
+type Retro {
+  id: ID!
+  name: String
+  items: [Item]!
+}
+
+type Item {
+  id: ID!
+  category: Category!
+  description: String
+}
+
+enum Category {
+  HAPPY
+  MEH
+  SAD
+}
+
+type Mutation {
+  newRetro(name: String!): Retro!
+  newItem(retroId: ID!, category: Category!, description: String): Item!
+}
